@@ -1,0 +1,38 @@
+{
+  "id": "wechat-access",
+  "channels": ["wechat-access"],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "enabled": {
+        "type": "boolean",
+        "description": "是否启用服务号渠道"
+      },
+      "token": {
+        "type": "string",
+        "description": "WebSocket 连接 token（手动配置时使用）"
+      },
+      "wsUrl": {
+        "type": "string",
+        "description": "WebSocket 网关地址"
+      },
+      "bypassInvite": {
+        "type": "boolean",
+        "description": "跳过邀请码验证"
+      },
+      "authStatePath": {
+        "type": "string",
+        "description": "自定义 token 持久化路径"
+      },
+      "environment": {
+        "type": "string",
+        "enum": ["production", "test"],
+        "description": "API 环境（production / test）"
+      },
+      "accounts": {
+        "type": "object",
+        "description": "多账号配置"
+      }
+    }
+  }
+}

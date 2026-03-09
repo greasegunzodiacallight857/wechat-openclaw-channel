@@ -1,0 +1,21 @@
+node_modules/
+dist/
+*.js
+*.d.ts
+*.js.map
+*.d.ts.map
+!jest.config.js
+!vitest.config.js
+
+# Auth state (tokens)
+.openclaw/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
