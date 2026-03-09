@@ -1,9 +1,24 @@
 {
-  "name": "wechat-access",
+  "name": "@henryxiaoyang/wechat-access-unqclawed",
   "version": "1.0.0",
   "type": "module",
-  "description": "简化的企业微信 服务号 接收消息 Demo",
-  "author": "aa",
+  "description": "OpenClaw 微信通路插件 — 扫码登录 + AGP WebSocket 双向通信",
+  "author": "HenryXiaoYang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HenryXiaoYang/wechat-access-unqclawed.git"
+  },
+  "files": [
+    "index.ts",
+    "auth/",
+    "common/",
+    "http/",
+    "websocket/",
+    "openclaw.plugin.json",
+    "websocket.md",
+    "README.md"
+  ],
   "openclaw": {
     "extensions": [
       "./index.ts"
@@ -26,7 +41,7 @@
       "order": 85
     },
     "install": {
-      "npmSpec": "@yanhaidao/wechat-access",
+      "npmSpec": "@henryxiaoyang/wechat-access-unqclawed",
       "localPath": "extensions/wechat-access",
       "defaultChoice": "npm"
     }
