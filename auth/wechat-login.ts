@@ -27,12 +27,12 @@ const buildAuthUrl = (state: string, env: QClawEnvironment): string => {
 
 /** 在终端显示二维码 */
 const displayQrCode = async (url: string): Promise<void> => {
-  console.log("\n" + "=".repeat(60));
-  console.log("  请用微信扫描下方二维码登录");
-  console.log("=".repeat(60));
+  console.log("");
+  console.log("=".repeat(64));
+  console.log("请用微信扫描下方二维码登录");
+  console.log("=".repeat(64));
 
   try {
-    // qrcode-terminal 是 CJS 模块，动态 import
     const qrterm = await import("qrcode-terminal");
     const generate = qrterm.default?.generate ?? qrterm.generate;
     generate(url, { small: true }, (qrcode: string) => {
@@ -43,9 +43,10 @@ const displayQrCode = async (url: string): Promise<void> => {
     console.log("请安装: npm install qrcode-terminal");
   }
 
-  console.log("\n或者在浏览器中打开以下链接：");
-  console.log(`  ${url}`);
-  console.log("=".repeat(60));
+  console.log("");
+  console.log("或者在浏览器中打开以下链接：");
+  console.log(url);
+  console.log("=".repeat(64));
 };
 
 /** 从 stdin 读取一行 */
@@ -68,17 +69,22 @@ const readLine = (prompt: string): Promise<string> => {
  */
 const waitForAuthCode = async (): Promise<string> => {
   console.log();
-  console.log("微信扫码授权后，浏览器会跳转到一个新页面。");
-  console.log("请从浏览器地址栏复制完整 URL，或只复制 code 参数值。");
+  console.log("微信扫码授权后，浏览器会跳转到新页面，地址栏 URL 形如：");
+  console.log("https://security.guanjia.qq.com/login?code=0a1B2c...&state=xxx");
+  console.log();
+  console.log("请复制 code= 后面的值（到 & 之前），或直接粘贴完整 URL。");
   console.log();
 
-  const raw = await readLine("请粘贴 URL 或 code: ");
+  const raw = await readLine("请粘贴 code 值或完整 URL: ");
   if (!raw) return "";
 
+  // 去掉 shell 转义残留的反斜杠，如 \? \= \&
+  const cleaned = raw.replace(/\\([?=&#])/g, "$1");
+
   // 尝试从 URL 中提取 code
-  if (raw.includes("code=")) {
+  if (cleaned.includes("code=")) {
     try {
-      const url = new URL(raw);
+      const url = new URL(cleaned);
       // 先查 query string
       const code = url.searchParams.get("code");
       if (code) return code;
@@ -91,12 +97,12 @@ const waitForAuthCode = async (): Promise<string> => {
     } catch {
       // URL 解析失败，尝试正则
     }
-    const match = raw.match(/[?&#]code=([^&#]+)/);
+    const match = cleaned.match(/[?&#]code=([^&#]+)/);
     if (match?.[1]) return match[1];
   }
 
   // 直接就是 code
-  return raw;
+  return cleaned;
 };
 
 export interface PerformLoginOptions {

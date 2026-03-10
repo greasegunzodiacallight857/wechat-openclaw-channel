@@ -7,8 +7,9 @@ dist/
 !jest.config.js
 !vitest.config.js
 
-# Auth state (tokens)
+# Auth state / secrets
 .openclaw/
+.npmrc
 
 # OS
 .DS_Store

@@ -109,10 +109,11 @@ export async function performDeviceBinding(options: DeviceBindOptions): Promise<
   }
 
   // 2. 展示链接
-  console.log("\n" + "=".repeat(60));
-  console.log("  请用「控制端微信」打开下方链接，完成设备绑定");
-  console.log("  绑定后微信中会出现对话入口");
-  console.log("=".repeat(60));
+  console.log("");
+  console.log("=".repeat(64));
+  console.log("请用「控制端微信」打开下方链接，完成设备绑定");
+  console.log("绑定后微信中会出现对话入口");
+  console.log("=".repeat(64));
   await showQr(contactUrl);
   console.log(`\n链接: ${contactUrl}\n`);
 

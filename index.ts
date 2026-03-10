@@ -126,15 +126,20 @@ const tencentAccessPlugin = {
       // 清理上次残留
       try { unlinkSync(codeTmpFile); } catch { /* ignore */ }
 
-      runtime.log("=".repeat(60));
-      runtime.log("  扫码并在手机上确认后，浏览器会跳转到新页面。");
-      runtime.log("  请复制地址栏的完整 URL 或其中的 code 参数值，");
-      runtime.log("  然后在另一个终端窗口执行：");
       runtime.log("");
-      runtime.log(`  echo "粘贴的URL或code" > ${codeTmpFile}`);
+      runtime.log("=".repeat(64));
+      runtime.log("扫码并在手机上确认后，浏览器会跳转到新页面。");
+      runtime.log("地址栏 URL 形如：");
       runtime.log("");
-      runtime.log("  本窗口会自动检测并完成登录。");
-      runtime.log("=".repeat(60));
+      runtime.log("https://security.guanjia.qq.com/login?code=0a1B2c...&state=xxx");
+      runtime.log("");
+      runtime.log("请复制 code= 后面的值（到 & 之前），在另一个终端执行：");
+      runtime.log("");
+      runtime.log(`echo "0a1B2c3D4e" > ${codeTmpFile}`);
+      runtime.log("");
+      runtime.log("也可以直接粘贴完整 URL，会自动提取 code。");
+      runtime.log("本窗口会自动检测并完成登录。");
+      runtime.log("=".repeat(64));
 
       // 5. 轮询临时文件
       const deadline = Date.now() + 300_000; // 5 分钟超时
@@ -150,6 +155,9 @@ const tencentAccessPlugin = {
         } catch { continue; }
 
         if (!raw) continue;
+
+        // 去掉 shell 转义残留的反斜杠，如 \? \= \&
+        raw = raw.replace(/\\([?=&#])/g, "$1");
 
         // 从 URL 或裸 code 中提取 code
         let code = raw;
