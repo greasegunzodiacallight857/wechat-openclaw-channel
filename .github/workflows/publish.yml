@@ -3,6 +3,7 @@ name: Publish to npm
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -11,7 +12,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     # skip release commits pushed by this workflow
-    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    if: "!contains(github.event.head_commit.message || '', '[skip ci]')"
     steps:
       - uses: actions/checkout@v4
         with:
