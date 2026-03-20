@@ -5,6 +5,9 @@
   "description": "OpenClaw 微信通路插件 — 支持 QClaw 和 WorkBuddy 双模式",
   "author": "HenryXiaoYang",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/HenryXiaoYang/wechat-openclaw-channel.git"
